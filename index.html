@@ -1,38 +1,209 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Studio</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
-    <div class="firstPage">
-        <nav>
-            <a href="#">Обо мне</a>
-            <a href="#">Работы</a>
-            <a href="#">Прайс</a>
-            <a href="#">Окошки</a>
-            <a href="#">Войти</a>
-            <a href="#">Регистрация</a>
-            <a href="#">RU</a>
-        </nav>
 
-        <div class="back-color">
-            <img src="media/Decore.png">
-        </div>
+    <body>
+        <header class="firstPage">
+            <figure class="back-color">
+                <img class="back-color" src="/media/Decore.png" alt="Декоративное фоновое изображение">
+            </figure>
 
-        <div class="mainContent">
-            <span>Студия маникюра</span>
-            <h2>Комфорт, искусство -
-совершенство в каждой детали</h2>
-            <p>Студия, где воплощаются ваши мечты, где мастерство сочетается с безупречным сервисом, неповторимым стилем и произведением искусства.</p>
-            <button>Связаться</button>
-            <video width="320" height="240" controls>
-            <source src="/media/video1.mp4" type="video/mp4">
-            </video>
-            <span class="textNextVideo">Мои работы</span>
-        </div>
-    </div>
-</body>
+            <nav>
+                <div class="nav-links">
+                    <a href="#">Обо мне</a>
+                    <a href="#">Работы</a>
+                    <a href="#">Прайс</a>
+                    <a href="#">Окошки</a>
+                </div>
+                <div class="registration">
+                    <a href="#">Войти</a>
+                    <div class="changeLang">
+                        <a href="#">Регистрация</a>
+                        <a href="#">PY</a>
+                    </div>
+                </div>
+            </nav>
+
+            <main>
+                <section class="mainContent">
+                    <span>СТУДИЯ МАНИКЮРА</span>
+                    <h2>Комфорт, искусство - совершенство в каждой детали</h2>
+                    <p>Студия, где воплощаются ваши мечты, где мастерство сочетается с безупречным сервисом,
+                        неповторимым стилем и произведением искусства.</p>
+                    <div class="lastStrok">
+                        <button>Связаться</button>
+                        <div class="show-video-btn" onclick="showVideo()">
+                            ▶ Посмотреть видео моих работ
+                        </div>
+                    </div>
+
+                    <video id="myVideo" class="video-hidden" width="420" height="340" controls>
+                        <source src="/media/video1.mp4" type="video/mp4">
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                </section>
+            </main>
+        </header>
+
+
+
+        <script>
+            function showVideo() {
+                const video = document.getElementById('myVideo');
+                video.classList.remove('video-hidden');
+                video.play();
+
+                document.addEventListener('click', function closeVideo(e) {
+                    if (!video.contains(e.target) && e.target.className !== 'show-video-btn') {
+                        video.classList.add('video-hidden');
+                        video.pause();
+                        document.removeEventListener('click', closeVideo);
+                    }
+                });
+            }
+        </script>
+
+
+        <article class="aboutMePage">
+            <main>
+                <h3>Обо мне</h3>
+                <ul type="circle">
+                    <li>Мастер-профессионал с многолетним опытом и медицинским образованием</li>
+                    <li>Премиальные материалы только проверенных брендов премиум-класса</li>
+                    <li>Стерильность и безопасность - все инструменты проходят полную обработку</li>
+                    <li>Экономия времени - запись онлайн и соблюдение таймингов</li>
+                    <li>Честные цены без скрытых доплат и навязанных услуг</li>
+                    <li>Идеальная точность - каждая линия, каждый штрих безупречны</li>
+                    <li>Индивидуальный подход - учитываем все ваши пожелания и особенности</li>
+                    <li>Долговечность результата - маникюр сохраняет perfection до 4 недель</li>
+                </ul>
+                <hr class="inner-line">
+            </main>
+        </article>
+
+
+        <article class="worksPage">
+            <main class="try">
+                <button></button>
+                <div class="sliderWorks">
+                    <img src="\media\nails.png">
+                    <span>Посмотреть больше работ</span>
+                </div>
+                <button></button>
+            </main>
+        </article>
+
+        <article class="OtziviPage">
+            <main>
+                <div class="smallBlock1">
+                    <img src="/media/twilingths.png">
+                    <div class="pink-block">
+                        <!-- <div class="icon-profile">
+                            <img src="/media/iconProfile.png">
+                        </div> -->
+                        <h6 class="client-name">Ненашева Ульяна</h6>
+                        <p class="review-text">Таких идеальных ногтей у меня давно не было. Спасибо taxas.nails, за
+                            крутой сервис, замечательных мастеров, высокое качество и любовь к своему делу!</p>
+                    </div>
+                </div>
+                <div class="smallBlock1">
+                    <img src="/media/catEye.png">
+                    <div class="pink-block">
+                        <!-- <div class="icon-profile">
+                            <img src="media/iconProfile.png">
+                        </div> -->
+                        <h6 class="client-name">Жарова Настя</h6>
+                        <p class="review-text">Делала маникюр гель-лак. Очень понравилось как мастер сделала свою
+                            работу, аккуратно, ровно, красиво.
+                            В салоне чисто , приветливый персонал. Рекомендую!!!
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="mainBlock">
+                    <div class="socialMedia">
+                        <a href="#">Instagram</a>
+                        <a href="#">telegram</a>
+                        <a href="#">whatsapp</a>
+                        <a href="#">tiktok</a>
+                        <a href="#">vk</a>
+                    </div>
+                    <img src="/media/image 307.png">
+                    <button>Оставить отзыв</button>
+                </div>
+
+
+                <div class="smallBlock1">
+                    <img src="/media/cuteCats.png">
+                    <div class="pink-block">
+                        <!-- <div class="icon-profile">
+                            <img src="/media/iconProfile.png">
+                        </div> -->
+                        <h6 class="client-name">Муругова Елизавета</h6>
+                        <p class="review-text">Мастер Екатерина сделала маникюр с покрытием гель лак качественно и
+                            быстро.
+                            Все очень понравилось. Теперь буду ходить только в эту студию!</p>
+                    </div>
+                </div>
+                <div class="smallBlock1">
+                    <img src="/media/cuteCats.png">
+                    <div class="pink-block">
+                        <!-- <div class="icon-profile">
+                            <img src="/media/iconProfile.png">
+                        </div> -->
+                        <h6 class="client-name">Муругова Елизавета</h6>
+                        <p class="review-text">Мастер Екатерина сделала маникюр с покрытием гель лак качественно и
+                            быстро.
+                            Все очень понравилось. Теперь буду ходить только в эту студию!</p>
+                    </div>
+                </div>
+
+
+            </main>
+        </article>
+
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <div class="contact-info">
+                        <p> г. Ростов-на-Дону, ул. Красивая, 15</p>
+                        <p> +7 (999) 123-45-67</p>
+                        <p> studiotaxas@manicure.ru</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Часы работы</h4>
+                    <div class="hours-info">
+                        <p><span>Ежедневно</span> с 8:00 до 21:00</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Подписка</h4>
+                    <p>Подпишитесь на рассылку, чтобы получать информацию об акциях и новинках</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="Ваш email" required>
+                        <button type="submit">Подписаться</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p> 2025 Студия маникюра. Все права защищены.</p>
+            </div>
+        </footer>
+    </body>
+
 </html>
