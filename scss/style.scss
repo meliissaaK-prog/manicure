@@ -1,0 +1,508 @@
+$pink-color: #FF7BB5;
+$salat-color: #D9FB60;
+$text-color: #333;
+$text-light: #555;
+$background-color: #FFF;
+$border-radius: 10px;
+$transition: all 0.3s ease;
+$mobile: 768px;
+$tablet: 1024px;
+$desktop: 1200px;
+
+@mixin flex-center($direction: row, $wrap: nowrap) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+}
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin hover-effect {
+    transition: $transition;
+    
+    &:hover {
+        @content;
+    }
+}
+
+@mixin pink-border($width: 3px) {
+    border: $width solid $pink-color;
+}
+
+@mixin card-shadow($color: rgba(255, 194, 214, 0.3)) {
+    box-shadow: 0 4px 15px $color;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #000;
+    background-color: $background-color;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.firstPage {
+    position: relative;
+    min-height: 100vh;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.back-color {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    height: auto;
+    opacity: 0.9;
+}
+
+nav {
+    @include flex-between;
+    padding: 30px 50px;
+    flex-wrap: wrap;
+
+    a {
+        text-decoration: none;
+        color: #000;
+        font-size: 18px;
+        margin: 0 15px;
+        font-weight: 500;
+        
+        @include hover-effect {
+            color: $pink-color;
+        }
+    }
+}
+
+.registration {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.changeLang {
+    display: flex;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.mainContent {
+    padding: 50px;
+    margin-top: 180px;
+    max-width: 865px;
+    position: relative;
+    z-index: 2;
+
+    span {
+        font-size: 24px;
+        color: $pink-color;
+        font-weight: 500;
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    h2 {
+        font-size: 66px;
+        font-weight: 800;
+        line-height: 1.2;
+        margin: 20px 0;
+        color: $text-color;
+    }
+
+    p {
+        font-size: 20px;
+        max-width: 541px;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        color: $text-light;
+    }
+
+    button {
+        background-color: $pink-color;
+        font-size: 18px;
+        color: #000;
+        width: 170px;
+        height: 60px;
+        border-radius: $border-radius;
+        border: none;
+        cursor: pointer;
+        font-weight: 500;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        @include hover-effect;
+    }
+}
+
+.lastStrok {
+    @include flex-center(row, wrap);
+    gap: 30px;
+}
+
+.show-video-btn {
+    cursor: pointer;
+    color: #000;
+    text-decoration: underline;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    
+    @include hover-effect {
+        color: $pink-color;
+        background-color: rgba($pink-color, 0.1);
+    }
+}
+
+#myVideo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    background: #000;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: $border-radius;
+}
+
+.video-hidden {
+    display: none;
+}
+
+.aboutMePage {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    main {
+        position: relative;
+    }
+
+    h3 {
+        font-size: 36px;
+        font-weight: 700;
+        color: $pink-color;
+        padding: 20px 30px;
+        @include pink-border;
+        display: inline-block;
+        margin: 0;
+        border-bottom: none;
+        position: relative;
+        z-index: 2;
+    }
+
+    ul {
+        @include pink-border;
+        padding: 83px 55px 80px 55px;
+        list-style-type: none;
+        position: relative;
+        margin-top: -3px;
+        background-color: transparent;
+
+        li {
+            font-size: 28px;
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+            color: $text-color;
+        }
+    }
+}
+
+.inner-line {
+    height: 3px;
+    background-color: $pink-color;
+    margin: 40px auto 0;
+    position: absolute;
+    bottom: 60px;
+    left: 55px;
+}
+
+.try {
+    @include flex-center;
+    gap: 60px;
+
+    img {
+        max-width: 640px;
+        max-height: 600px;
+    }
+}
+
+.mainInfo {
+    display: flex;
+    background-color: $pink-color;
+}
+
+.OtziviPage {
+    color: $text-color;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        padding-top: 90px;
+        align-items: start;
+    }
+}
+
+.smallBlock1 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    img {
+        width: 100%;
+        height: 392px;
+        object-fit: cover;
+        border-radius: 12px;
+        display: block;
+    }
+}
+
+.pink-block {
+    background-color: #fff;
+    border: 2px solid lighten($pink-color, 20%);
+    border-radius: 15px;
+    padding: 20px;
+    @include card-shadow;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    
+    @include hover-effect {
+        transform: translateY(-5px);
+        @include card-shadow(rgba(255, 194, 214, 0.4));
+    }
+}
+
+.client-name {
+    margin: 0 0 12px 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: darken($pink-color, 10%);
+}
+
+.review-text {
+    margin: 0;
+    line-height: 1.6;
+    color: $text-light;
+    flex-grow: 1;
+}
+
+.mainBlock {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    background: linear-gradient(135deg, lighten($pink-color, 10%), $pink-color);
+    border-radius: 20px;
+    padding: 40px 20px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.socialMedia {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 10px;
+
+    a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        padding: 8px 15px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        
+        @include hover-effect {
+            background-color: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+    }
+}
+
+.mainBlock {
+    img {
+        max-width: 150px;
+        height: auto;
+        border-radius: $border-radius;
+    }
+
+    button {
+        background-color: #fff;
+        color: darken($pink-color, 10%);
+        border: none;
+        padding: 12px 30px;
+        font-size: 1.1em;
+        font-weight: bold;
+        border-radius: 25px;
+        cursor: pointer;
+        @include card-shadow(rgba(0, 0, 0, 0.1));
+        
+        @include hover-effect {
+            background-color: lighten($pink-color, 25%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+    }
+}
+
+.sliderWorks {
+    display: flex;
+    flex-direction: column;
+
+    span {
+        font-size: 44px;
+        text-decoration: underline;
+        padding-top: 10px;
+    }
+}
+
+footer {
+    background-color: transparent;
+    border-top: 3px solid $pink-color;
+    padding: 40px 0 20px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 30px;
+    padding: 0 15px;
+
+    h4 {
+        color: $pink-color;
+        font-size: 20px;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: salat-color;
+        }
+    }
+}
+
+.contact-info {
+    p {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        color: $text-color;
+    }
+
+    i {
+        margin-right: 10px;
+        color: salat-color;
+        width: 20px;
+    }
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+
+    a {
+        @include flex-center;
+        width: 40px;
+        height: 40px;
+        background-color: salat-color;
+        color: $text-color;
+        border-radius: 50%;
+        text-decoration: none;
+        
+        @include hover-effect {
+            background-color: $pink-color;
+            transform: translateY(-3px);
+        }
+    }
+}
+
+.hours-info {
+    p {
+        margin-bottom: 8px;
+        color: $text-color;
+        display: block;
+    }
+
+    span {
+        font-weight: 500;
+        color: salat-color;
+    }
+}
+
+.subscribe-form {
+    display: flex;
+    flex-direction: column;
+
+    input {
+        padding: 12px 15px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    button {
+        background-color: $pink-color;
+        color: $text-color;
+        border: none;
+        padding: 12px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        
+        @include hover-effect {
+            background-color: $pink-color;
+            color: white;
+        }
+    }
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid rgba($pink-color, 0.3);
+    margin-top: 20px;
+    color: $text-color;
+}
